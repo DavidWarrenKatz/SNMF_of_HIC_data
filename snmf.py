@@ -6,11 +6,11 @@
 #hic-straw is based off code from https://github.com/aidenlab/straw
 
 
-#installation requirements
+#installation requirements. need to run these install commands in the terminal before running the program
 #python3 -m pip install hic-straw
 #python3 -m pip install numpy
 #python3 -m pip install scipy
-
+#python3 -m pip install matlabengine //need to have matlab installed on your computer first
 
 import sys
 import matplotlib.pyplot as plt
