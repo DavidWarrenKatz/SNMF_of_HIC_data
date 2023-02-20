@@ -57,6 +57,8 @@ for i in range(n):
     options = dict()
     options['verbose'] = '1'
     options['max_epoch'] = '100'
+    options.calc_symmetry = true;    #this line might only work in the matlab code
+
 
     # convert numpy array to matlab.double
     V_m = matlab.double(V.tolist())
@@ -67,18 +69,33 @@ for i in range(n):
     # perform solvers in MATLAB
     # Fro-MU
     [w_mu, infos_mu] = eng.fro_mu_nmf(V_m, rank, options_m, nargout=2)
-    
 
-    # convert matlab.struct to list
-    iter_mu = list(infos_mu['iter'][0])
-    time_mu = list(infos_mu['time'][0])
-    cost_mu = list(infos_mu['cost'][0])
+
+    
+    ## perform symmetric factroization
+    # Symm-ANLS
+    options.alpha = 0.6;
+    [w_symm_anls, infos_symm_anls] = eng.symm_anls(V, rank, options);
+    # Symm-Newton
+    [w_symm_newton, infos_symm_newton] = eng.symm_newton(V, rank, options);
+    # Symm-Hals
+    options.lambda = 0.6;
+    [w_symm_halsacc, infos_symm_halsacc] = eng.symm_halsacc(V, rank, options);
+    
+    # convert matlab.struct to list for symmetric alg
+    iter_anls = list(infos_symm_anls['iter'][0])
+    cost_anls = list(infos_symm_anls['cost'][0])
+    iter_newton = list(infos_symm_newton['iter'][0])
+    cost_newton = list(infos_symm_newton['cost'][0])
+    iter_hals = list(infos_symm_halsacc['iter'][0])
+    cost_hals = list(infos_symm_halsacc['cost'][0])
+    
 
     # plotting
     plt.figure()
     plt.xlabel('Epoch')
     plt.ylabel('Cost')
-    plt.plot(iter_mu, cost_mu, label ="Fro-MU")
+    plt.plot(iter_anls, cost_anls, label ="norm(W = Wt)")
     plt.legend()
     plt.title(f'Epoch vs. Cost for {i}')
 
