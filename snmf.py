@@ -6,11 +6,12 @@
 #hic-straw is based off code from https://github.com/aidenlab/straw
 
 
-#installation requirements. need to run these install commands in the terminal before running the program
+#installation requirements. need to run these install commands in the terminal before running the program. 
 #python3 -m pip install hic-straw
 #python3 -m pip install numpy
 #python3 -m pip install scipy
 #python3 -m pip install matlabengine //need to have matlab installed on your computer first
+# Alternatively, in the bmi cluster, need to run these installations through conda
 
 import sys
 import matplotlib.pyplot as plt
@@ -22,19 +23,13 @@ from matplotlib import gridspec
 from matplotlib.colors import LinearSegmentedColormap
 
 '''
-On the bmi cluster, I received the following error when trying to install hic-straw and numpy:
+On the bmi cluster, conda install hic-straw and numpy:
 
-python3 -m pip install hic-straw
-Collecting hic-straw
-  Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProxyError('Cannot connect to proxy.', OSError('Tunnel connection failed: 407 Proxy Authentication Required',))': /simple/hic-straw/
-  Retrying (Retry(total=3, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProxyError('Cannot connect to proxy.', OSError('Tunnel connection failed: 407 Proxy Authentication Required',))': /simple/hic-straw/
-  Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProxyError('Cannot connect to proxy.', OSError('Tunnel connection failed: 407 Proxy Authentication Required',))': /simple/hic-straw/
-  Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProxyError('Cannot connect to proxy.', OSError('Tunnel connection failed: 407 Proxy Authentication Required',))': /simple/hic-straw/
-  Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProxyError('Cannot connect to proxy.', OSError('Tunnel connection failed: 407 Proxy Authentication Required',))': /simple/hic-straw/
-  Could not find a version that satisfies the requirement hic-straw (from versions: )
-No matching distribution found for hic-straw
+ProxyError: Conda cannot proceed due to an error in your proxy configuration.
+Check for typos and other configuration errors in any '.netrc' file in your home directory,
+any environment variables ending in '_PROXY', and any other system-wide proxy
+configuration settings.
 '''
-
 
 
 
