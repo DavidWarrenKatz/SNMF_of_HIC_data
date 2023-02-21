@@ -22,7 +22,7 @@ from matplotlib import gridspec
 from matplotlib.colors import LinearSegmentedColormap
 
 '''
-On the bmi cluster, I received the following error when trying to install hic-straw:
+On the bmi cluster, I received the following error when trying to install hic-straw and numpy:
 
 python3 -m pip install hic-straw
 Collecting hic-straw
@@ -43,7 +43,7 @@ No matching distribution found for hic-straw
 hic = hicstraw.HiCFile("https://www.encodeproject.org/files/ENCFF718AWL/@@download/ENCFF718AWL.hic")
 
 '''
-This is where the program is crashing. I received the following comment:
+This is where the program is crashing locally. I received the following comment:
 
 Python(10695,0x11ac0c600) malloc: Heap corruption detected, free list is damaged at 0x600001899d20
 *** Incorrect guard value: 278612453268736
