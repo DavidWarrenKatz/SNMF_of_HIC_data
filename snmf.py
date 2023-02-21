@@ -21,6 +21,23 @@ import seaborn as sns
 from matplotlib import gridspec
 from matplotlib.colors import LinearSegmentedColormap
 
+'''
+On the bmi cluster, I received the following error when trying to install hic-straw:
+
+python3 -m pip install hic-straw
+Collecting hic-straw
+  Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProxyError('Cannot connect to proxy.', OSError('Tunnel connection failed: 407 Proxy Authentication Required',))': /simple/hic-straw/
+  Retrying (Retry(total=3, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProxyError('Cannot connect to proxy.', OSError('Tunnel connection failed: 407 Proxy Authentication Required',))': /simple/hic-straw/
+  Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProxyError('Cannot connect to proxy.', OSError('Tunnel connection failed: 407 Proxy Authentication Required',))': /simple/hic-straw/
+  Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProxyError('Cannot connect to proxy.', OSError('Tunnel connection failed: 407 Proxy Authentication Required',))': /simple/hic-straw/
+  Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProxyError('Cannot connect to proxy.', OSError('Tunnel connection failed: 407 Proxy Authentication Required',))': /simple/hic-straw/
+  Could not find a version that satisfies the requirement hic-straw (from versions: )
+No matching distribution found for hic-straw
+'''
+
+
+
+
 
 # hard-coded .hic file to practice with
 hic = hicstraw.HiCFile("https://www.encodeproject.org/files/ENCFF718AWL/@@download/ENCFF718AWL.hic")
