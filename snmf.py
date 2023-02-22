@@ -17,8 +17,11 @@ hic = hicstraw.HiCFile("https://www.encodeproject.org/files/ENCFF718AWL/@@downlo
 #get the input n from user
 n = int(input("Input an integer n: "))
 
-#get numpy matrix
-numpy_matrix = mzd.getRecordsAsMatrix(10000000, 12000000, 10000000, 12000000)
+#Get the matrix object for chromosome 4 at 5kb resolution.
+matrix_object_chr4 = hic.getMatrixZoomData('4', '4', "observed", "KR", "BP", 5000)
+
+#Get a numpy matrix for the loci between 10MB and 12MB
+numpy_matrix_chr4 = matrix_object_chr4.getRecordsAsMatrix(10000000, 12000000, 10000000, 12000000)
 
 # import MATLAB module
 import matlab.engine
