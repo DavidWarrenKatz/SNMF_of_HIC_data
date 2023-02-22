@@ -1,0 +1,32 @@
+#the low rank approximation is based off code from https://github.com/hiroyuki-kasai/NMFLibrary
+#hic-straw is based off code from https://github.com/aidenlab/straw
+
+
+
+#installation requirements. need to run these install commands in the terminal before running the program. 
+
+#hic-straw works best on cluster in python 3.8
+
+python3 -m pip install pybind11.           //needed to install hic-straw
+python3 -m pip install hic-straw
+python3 -m pip install numpy
+python3 -m pip install scipy
+python3 -m pip install matlabengine         //need to have matlab installed on your computer first
+
+
+# Alternatively, in the bmi cluster, need to run these installations through conda
+# also you need the following proxy commands to run on bmi
+
+use_proxy=yes
+proxy=http://username:password@bmiproxyp.chmcres.cchmc.org:80
+export http_proxy=$proxy
+export ftp_proxy=$proxy
+export https_proxy=$proxy
+
+conda install -c conda-forge pybind11
+conda install -c jrhawley hic-straw
+conda install -c jrhawley numpy
+conda install -c jrhawley scipy
+conda install -c jrhawley matlabengine 
+
+
