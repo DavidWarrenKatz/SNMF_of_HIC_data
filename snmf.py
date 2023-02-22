@@ -7,11 +7,15 @@
 
 
 #installation requirements. need to run these install commands in the terminal before running the program. 
+#python3 -m pip install pybind11
 #python3 -m pip install hic-straw
 #python3 -m pip install numpy
 #python3 -m pip install scipy
 #python3 -m pip install matlabengine //need to have matlab installed on your computer first
 # Alternatively, in the bmi cluster, need to run these installations through conda
+
+#conda install -c conda-forge pybind11
+#conda install -c jrhawley hic-straw
 
 import sys
 import matplotlib.pyplot as plt
