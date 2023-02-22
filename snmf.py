@@ -2,56 +2,18 @@
 # This code inputs a .hic file and an positive integer n. It calculates the optimal symmetric non-negative rank r approximation of HiC contact
 # matrix for all r less than or equal to n. The results are displayed as a r(x-axis)-by-"error of optimal-rank-r approximation"(y-axis) graph.
 
-#the low rank approximation is based off code from https://github.com/hiroyuki-kasai/NMFLibrary
-#hic-straw is based off code from https://github.com/aidenlab/straw
-
-
-#installation requirements. need to run these install commands in the terminal before running the program. 
-#python3 -m pip install pybind11
-#python3 -m pip install hic-straw
-#python3 -m pip install numpy
-#python3 -m pip install scipy
-#python3 -m pip install matlabengine //need to have matlab installed on your computer first
-# Alternatively, in the bmi cluster, need to run these installations through conda
-
-#conda install -c conda-forge pybind11
-#conda install -c jrhawley hic-straw
-
 import sys
 import matplotlib.pyplot as plt
 import numpy as np
 import scipy.io
-import hicstraw
+import hicstraw     #in the python 8 version this needed to be import straw
 import seaborn as sns
 from matplotlib import gridspec
 from matplotlib.colors import LinearSegmentedColormap
 
-'''
-On the bmi cluster, conda install hic-straw and numpy:
-
-ProxyError: Conda cannot proceed due to an error in your proxy configuration.
-Check for typos and other configuration errors in any '.netrc' file in your home directory,
-any environment variables ending in '_PROXY', and any other system-wide proxy
-configuration settings.
-'''
-
-
-
-
 # hard-coded .hic file to practice with
 hic = hicstraw.HiCFile("https://www.encodeproject.org/files/ENCFF718AWL/@@download/ENCFF718AWL.hic")
 
-'''
-This is where the program is crashing locally. I received the following comment:
-
-Python(10695,0x11ac0c600) malloc: Heap corruption detected, free list is damaged at 0x600001899d20
-*** Incorrect guard value: 278612453268736
-Python(10695,0x11ac0c600) malloc: *** set a breakpoint in malloc_error_break to debug
-zsh: abort      python3
-
-#matrix zoom data object
-matrix_object_chr4 = hic.getMatrixZoomData('4', '4', "observed", "KR", "BP", 5000)
-'''
 #get the input n from user
 n = int(input("Input an integer n: "))
 
