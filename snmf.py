@@ -21,7 +21,7 @@ n = int(input("Input an integer n: "))
 matrix_object_chr4 = hic.getMatrixZoomData('4', '4', "observed", "KR", "BP", 5000)
 
 #Get a numpy matrix for the loci between 10MB and 12MB
-numpy_matrix_chr4 = matrix_object_chr4.getRecordsAsMatrix(10000000, 12000000, 10000000, 12000000)
+V = matrix_object_chr4.getRecordsAsMatrix(10000000, 12000000, 10000000, 12000000)
 
 # import MATLAB module
 import matlab.engine
