@@ -25,8 +25,8 @@ export https_proxy=$proxy
 
 conda install -c conda-forge pybind11
 conda install -c jrhawley hic-straw
-conda install -c jrhawley numpy
-conda install -c jrhawley scipy
-conda install -c jrhawley matlabengine 
+conda install -c numpy
+conda install -c scipy
+conda install -c matlabengine 
 
 
