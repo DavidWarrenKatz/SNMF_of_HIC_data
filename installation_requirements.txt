@@ -44,6 +44,7 @@ conda install -c bioconda hic-straw
                             // the new version is imported with import hicstraw while the old version is 
                             // imported with import straw
                             // am not able to download hic-straw with this command, I used pip install instead
+                            // not sure if this will work in bmi
 conda install numpy
 conda install scipy
 conda install -c pspuhler matlab_engine
