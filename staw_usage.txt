@@ -1,0 +1,8 @@
+# How to use the straw function from the straw class from aidenlab
+
+
+Straw, takes in the normalization, the filename or URL, chromosome1 (and optional range), chromosome2 (and optional range), 
+whether the bins desired are fragment or base pair delimited, and bin size. It then reads the header, follows the various pointers 
+to the desired matrix and normalization vector, and stores as [x, y, count]
+
+Usage: straw <NONE/VC/VC_SQRT/KR> <hicFile(s)> <chr1>[:x1:x2] <chr2>[:y1:y2] <BP/FRAG> <binsize>
