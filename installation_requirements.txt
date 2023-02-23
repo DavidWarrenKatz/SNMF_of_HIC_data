@@ -13,6 +13,7 @@ python3 -m pip install scipy
 python3 -m pip install matlabengine         //need to have matlab installed on your computer first
 python3 -m pip install -U matplotlib
 python3 -m pip install seaborn
+python3 -m pip install requests             //straw uses the requests library for support of URLs
 
 # to run on the bmi cluster, make sure to configure the proxy settings first with the following commands
 
@@ -33,6 +34,7 @@ conda install scipy
 conda install -c pspuhler matlab_engine
 conda install matplotlib
 conda install seaborn
+conda install requests
 
 # you should now be ready to run the symmetric non-negative low rank matrix approximation code
 
