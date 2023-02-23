@@ -4,6 +4,12 @@
 # hic-straw is based off code from https://github.com/aidenlab/straw
 # hic-straw works best on bmi cluster with python version 3.8.10
 
+
+
+# hic-straw 1.3.1 uses "import hicstraw" and has new functions. However, when you run "python3 -m pip install hic-straw" a different 
+# version of straw is downloaded. 
+
+
 # if using pip, run the following installation commands in the terminal
 
 python3 -m pip install pybind11.           //needed to install hic-straw
