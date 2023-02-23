@@ -28,7 +28,7 @@ conda install -c conda-forge pybind11
 conda install -c jrhawley hic-straw
 conda install numpy
 conda install scipy
-conda install matlabengine 
+conda install -c pspuhler matlab_engine
 
 # you should then be ready to run the symmetric non-negative low rank matrix approximation code
 
