@@ -6,21 +6,21 @@ import sys
 import matplotlib.pyplot as plt
 import numpy as np
 import scipy.io
-import hicstraw     #in the python 8 version this needed to be import straw
+import hicstraw     #someitmes this is import hicstraw?
 import seaborn as sns
 from matplotlib import gridspec
 from matplotlib.colors import LinearSegmentedColormap
 
-# hard-coded .hic file to practice with
+# hard-coded .hic file to practice with. This command returns a hicstraw.HiCFile object. This file contains hic data with many resolutions.
 hic = hicstraw.HiCFile("https://www.encodeproject.org/files/ENCFF718AWL/@@download/ENCFF718AWL.hic")
 
 #get the input n from user
 n = int(input("Input an integer n: "))
 
-#Get the matrix object for chromosome 4 at 5kb resolution.
-matrix_object_chr4 = hic.getMatrixZoomData('4', '4', "observed", "KR", "BP", 5000)
+#Get the matrix object for chromosome 4, no normalization, at 5kb base pair resolution. hicstraw.MatrixZoomData returns an object of type hicstraw.MatrixZoomData, a class defined in hic-straw
+matrix_object_chr4 = hic.getMatrixZoomData('4', '4', "observed", "NONE", "BP", 5000)
 
-#Get a numpy matrix for the loci between 10MB and 12MB
+#Get a numpy matrix for the loci between 10MB and 12MB. This is of type numpy.ndarray
 V = matrix_object_chr4.getRecordsAsMatrix(10000000, 12000000, 10000000, 12000000)
 
 # import MATLAB module
@@ -60,23 +60,23 @@ for i in range(n):
     # Symm-Newton
     [w_symm_newton, infos_symm_newton] = eng.symm_newton(V, rank, options);
     # Symm-Hals
-    options.lambda = 0.6;
-    [w_symm_halsacc, infos_symm_halsacc] = eng.symm_halsacc(V, rank, options);
+    #options.lambda = 0.6;
+    #[w_symm_halsacc, infos_symm_halsacc] = eng.symm_halsacc(V, rank, options);
     
     # convert matlab.struct to list for symmetric alg
     iter_anls = list(infos_symm_anls['iter'][0])
     cost_anls = list(infos_symm_anls['cost'][0])
     iter_newton = list(infos_symm_newton['iter'][0])
     cost_newton = list(infos_symm_newton['cost'][0])
-    iter_hals = list(infos_symm_halsacc['iter'][0])
-    cost_hals = list(infos_symm_halsacc['cost'][0])
+    #iter_hals = list(infos_symm_halsacc['iter'][0])
+    #cost_hals = list(infos_symm_halsacc['cost'][0])
     
 
-    # plotting
+    # plotting of ANLS
     plt.figure()
     plt.xlabel('Epoch')
     plt.ylabel('Cost')
-    plt.plot(iter_anls, cost_anls, label ="norm(W = Wt)")
+    plt.plot(iter_anls, cost_anls, label ="norm(W - Wt)")
     plt.legend()
     plt.title(f'Epoch vs. Cost for {i}')
 
