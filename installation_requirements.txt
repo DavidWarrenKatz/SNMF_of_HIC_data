@@ -26,9 +26,9 @@ conda create -n hicstraw python=3.8.10.     //create a conda environment
 conda activate hicstraw
 conda install -c conda-forge pybind11
 conda install -c jrhawley hic-straw
-conda install -c numpy
-conda install -c scipy
-conda install -c matlabengine 
+conda install numpy
+conda install scipy
+conda install matlabengine 
 
 # you should then be ready to run the symmetric non-negative low rank matrix approximation code
 
