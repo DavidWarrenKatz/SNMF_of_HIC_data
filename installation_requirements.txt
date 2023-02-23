@@ -30,6 +30,6 @@ conda install numpy
 conda install scipy
 conda install -c pspuhler matlab_engine
 
-# you should then be ready to run the symmetric non-negative low rank matrix approximation code
+# you should now be ready to run the symmetric non-negative low rank matrix approximation code
 
 
