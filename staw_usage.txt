@@ -1,5 +1,5 @@
 # How to use the straw function from the straw class from aidenlab
-
+# this is an old version of straw
 
 Straw, takes in the normalization, the filename or URL, chromosome1 (and optional range), chromosome2 (and optional range), 
 whether the bins desired are fragment or base pair delimited, and bin size. It then reads the header, follows the various pointers 
