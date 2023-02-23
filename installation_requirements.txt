@@ -2,56 +2,42 @@
 
 # the low rank approximation is based off code from https://github.com/hiroyuki-kasai/NMFLibrary
 # hic-straw is based off code from https://github.com/aidenlab/straw
-# hic-straw works best on bmi cluster with python version 3.8.10
 
-
-
-# hic-straw 1.3.1 uses "import hicstraw" and has new functions. However, when you run "python3 -m pip install hic-straw" a different 
-# version of straw is downloaded. 
-
-
-# if using pip, run the following installation commands in the terminal
-
-python3 -m pip install pybind11.           //needed to install hic-straw
-python3 -m pip install hic-straw
-python3 -m pip install numpy
-python3 -m pip install scipy
-python3 -m pip install matlabengine         //need to have matlab installed on your computer first
-python3 -m pip install -U matplotlib
-python3 -m pip install seaborn
-python3 -m pip install requests             //straw uses the requests library for support of URLs
-
-# to run on the bmi cluster, make sure to configure the proxy settings first with the following commands
-
-use_proxy=yes
-proxy=http://username:password@bmiproxyp.chmcres.cchmc.org:80
-export http_proxy=$proxy
-export ftp_proxy=$proxy
-export https_proxy=$proxy
-
-# In the bmi cluster, sometimes there are permission and order of installation errors using pip. An alternative is to use the package manager conda
-
-conda create -n hicstraw python=3.8.10.     //create a conda environment
+conda create -n hicstraw      //create a conda environment
 conda activate hicstraw
-conda install -c conda-forge pybind11
-
 conda install -c bioconda hic-straw
-                            // the command conda install -c jrhawley hic-straw or just 
-                            // conda install hic-straw may doanload an older version 0.0.6
-                            // which will NOT work with the symmetric matrix code
-                            // if you have downloaded the wrong version of hic-straw, you must delete
-                            // the old version before installing the new version or create a new environment
-                            // the new version is imported with import hicstraw while the old version is 
-                            // imported with import straw
-                            // am not able to download hic-straw with this command, I used pip install instead
-                            // not sure if this will work in bmi
 conda install numpy
 conda install scipy
-conda install -c pspuhler matlab_engine
+conda install -c pspuhler matlab_engine     //need to have matlab installed on your computer first
 conda install matplotlib
 conda install seaborn
-conda install requests
+conda install requests                    //straw uses the requests library for support of URLs, likely you already have it installed
+  
 
 # you should now be ready to run the symmetric non-negative low rank matrix approximation code
 
+TROUBLESHOOTING
 
+PYBIND11 Problem
+      hic-straw needs pybind11. This should be installed automatically when installing hic-straw. If, however, it is not, you can install pybind11 manually with the following conda command "conda install -c conda-forge pybind11" or pip command "python3 -m pip install pybind11". 
+
+Conda not installling hic-straw
+      Try the pip command "python3 -m pip install hic-straw". You may need to download the installation files directly if installation still does not work. Furthermore, you can use the following pip commands if conda runs into issues. 
+      python3 -m pip install hic-straw
+      python3 -m pip install numpy
+      python3 -m pip install scipy
+      python3 -m pip install matlabengine         
+      python3 -m pip install -U matplotlib
+      python3 -m pip install seaborn
+      python3 -m pip install requests   
+
+OLD VERSION OF hic-straw
+       Make sure you are using the command "conda install -c bioconda hic-straw". The command conda install -c jrhawley hic-straw or just "conda install hic-straw" may doanload an older version 0.0.6, which will NOT work with the symmetric matrix code. If you have downloaded the wrong version of hic-straw, you must delete the old version before installing the new version or create a new environment. The new version is imported with import hicstraw while the old version is imported with import straw.        
+
+PROXY SETTINGS in BMI Cluster
+      Make sure you have contacted BMI and they have given you proxy access. You still need to input the following proxy commands at the beginning of each session. 
+  use_proxy=yes
+  proxy=http://username:password@bmiproxyp.chmcres.cchmc.org:80
+  export http_proxy=$proxy
+  export ftp_proxy=$proxy
+  export https_proxy=$proxy
