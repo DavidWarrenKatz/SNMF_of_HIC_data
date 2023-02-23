@@ -1,11 +1,10 @@
-#the low rank approximation is based off code from https://github.com/hiroyuki-kasai/NMFLibrary
-#hic-straw is based off code from https://github.com/aidenlab/straw
+# installation requirements. need to run these install commands in the terminal before running the program.
 
+# the low rank approximation is based off code from https://github.com/hiroyuki-kasai/NMFLibrary
+# hic-straw is based off code from https://github.com/aidenlab/straw
+# hic-straw works best on bmi cluster with python version 3.8.10
 
-
-#installation requirements. need to run these install commands in the terminal before running the program. 
-
-#hic-straw works best on cluster in python 3.8
+# if using pip, run the following installation commands in the terminal
 
 python3 -m pip install pybind11.           //needed to install hic-straw
 python3 -m pip install hic-straw
@@ -13,9 +12,7 @@ python3 -m pip install numpy
 python3 -m pip install scipy
 python3 -m pip install matlabengine         //need to have matlab installed on your computer first
 
-
-# Alternatively, in the bmi cluster, need to run these installations through conda
-# also you need the following proxy commands to run on bmi
+# to run on the bmi cluster, make sure to configure the proxy settings first with the following commands
 
 use_proxy=yes
 proxy=http://username:password@bmiproxyp.chmcres.cchmc.org:80
@@ -23,10 +20,16 @@ export http_proxy=$proxy
 export ftp_proxy=$proxy
 export https_proxy=$proxy
 
+# In the bmi cluster, sometimes there are permission and order of installation errors using pip. An alternative is to use the package manager conda
+
+conda create -n hicstraw python=3.8.10.     //create a conda environment
+conda activate hicstraw
 conda install -c conda-forge pybind11
 conda install -c jrhawley hic-straw
 conda install -c numpy
 conda install -c scipy
 conda install -c matlabengine 
+
+# you should then be ready to run the symmetric non-negative low rank matrix approximation code
 
 
