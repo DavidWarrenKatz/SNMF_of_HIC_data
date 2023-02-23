@@ -42,7 +42,8 @@ conda install -c bioconda hic-straw
                             // if you have downloaded the wrong version of hic-straw, you must delete
                             // the old version before installing the new version or create a new environment
                             // the new version is imported with import hicstraw while the old version is 
-                            //imported with import straw
+                            // imported with import straw
+                            // am not able to download hic-straw with this command, I used pip install instead
 conda install numpy
 conda install scipy
 conda install -c pspuhler matlab_engine
