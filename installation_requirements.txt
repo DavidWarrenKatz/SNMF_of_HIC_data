@@ -41,3 +41,7 @@ PROXY SETTINGS in BMI Cluster
   export http_proxy=$proxy
   export ftp_proxy=$proxy
   export https_proxy=$proxy
+  
+  
+  MATLAB
+  May need to run the command addpath(genpath(pwd)) in the Matlab terminal
